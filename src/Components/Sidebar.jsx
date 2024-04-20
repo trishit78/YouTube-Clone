@@ -5,6 +5,7 @@ import { FaHome } from "react-icons/fa";
 import { SiYoutubeshorts } from "react-icons/si";
 import { MdSubscriptions } from "react-icons/md";
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 const SidebarItems = [
@@ -101,7 +102,7 @@ function Sidebar() {
 
     return (
     <>
-    <div className ='relative h-[100vh] w-[17%] ml-6 space-y-4 overflow-y-scroll overflow-x-hidden'>
+    <div className ={`relative h-[100vh] {open ? "w-[20%]" :w-[6%]}  ml-6 space-y-4 overflow-y-scroll overflow-x-hidden`}>
         {
 
             SidebarItems.map((item,index) => ( 
@@ -109,7 +110,9 @@ function Sidebar() {
                     {item.icons}
                     {
                         open &&(
+                            <Link to='/'>
                             <p className='font-semibold text-xl'>{item.title}</p>
+                            </Link>
 
                         )
                     }

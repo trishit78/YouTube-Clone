@@ -5,6 +5,7 @@ import KEY from '../../src/constants'
 
 import axios from 'axios'
 import VideoCart from './VideoCart'
+import { Link } from 'react-router-dom'
 function VideoContainer() {
 
     const [video,setVideo] = useState([])
@@ -30,8 +31,9 @@ function VideoContainer() {
         {
             video.map((item)=>{
                 return(
-
-                    <VideoCart key={item.id} item={item}/>
+                    <Link key={item.id} to={`/watch?v=${item.id}`}>
+                    <VideoCart  item={item}/>
+                    </Link>
                     )
             })
         }
